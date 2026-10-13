@@ -1,0 +1,43 @@
+Challenge:
+Translate the users restaurant questions into SQLite SELECT queries.
+
+The database contains three tables.
+RESTAURANT has columns: ID, NAME, FOOD_TYPE, CITY_NAME, RATING.
+LOCATION has columns: RESTAURANT_ID, HOUSE_NUMBER, STREET_NAME, CITY_NAME. LOCATION.RESTAURANT_ID connects to RESTAURANT.ID.
+GEOGRAPHIC has columns: CITY_NAME, COUNTY, REGION. GEOGRAPHIC.CITY_NAME connects to LOCATION.CITY_NAME.
+
+The project files are in Week_03_Prompting/Assignments/Task_2/data/:
+restaurants-schema.csv contains the schema.
+restaurants-db.txt contains the restaurant data.
+restaurants_dataset.csv contains the questions.
+
+Example:
+Question: "What is the best delivery in bratislava?"
+SQL:
+SELECT L.HOUSE_NUMBER, R.NAME
+FROM RESTAURANT AS R
+JOIN LOCATION AS L ON L.RESTAURANT_ID = R.ID
+WHERE R.FOOD_TYPE = 'delivery'
+  AND L.CITY_NAME = 'bratislava'
+  AND R.RATING = (
+    SELECT MAX(R2.RATING)
+    FROM RESTAURANT AS R2
+    JOIN LOCATION AS L2 ON L2.RESTAURANT_ID = R2.ID
+    WHERE R2.FOOD_TYPE = 'delivery'
+      AND L2.CITY_NAME = 'bratislava'
+  );
+
+Action:
+Do every question in restaurants_dataset.csv.
+Identify the requested filters and write each SQL query directly.
+Use the listed tables and columns, joining tables when needed.
+
+Result:
+Save restaurants_dataset_predictions_CAR.csv with columns: question,predicted_sql.
+One query per question. Keep the original question text and order.
+Select L.HOUSE_NUMBER and R.NAME in every query.
+Use only the question column. Do not read or use the result column or existing prediction files.
+Do not use row numbers to choose answers.
+Do not write or use a parser or a rule-based generator.
+Save the queries without correcting them against expected results.
+No explanations or extra files.

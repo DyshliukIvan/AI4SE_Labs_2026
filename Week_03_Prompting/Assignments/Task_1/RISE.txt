@@ -1,0 +1,51 @@
+Request:
+Write SQLite SELECT queries that find the restaurants
+requested in the users questions.
+
+Input:
+The database contains three tables.
+The table RESTAURANT contains columns: ID, NAME, FOOD_TYPE, CITY_NAME, RATING.
+The table LOCATION contains columns: RESTAURANT_ID, HOUSE_NUMBER, STREET_NAME and CITY_NAME. LOCATION.RESTAURANT_ID connects to RESTAURANT.ID.
+The table GEOGRAPHIC contains columns: CITY_NAME, COUNTY and REGION. GEOGRAPHIC.CITY_NAME connects to LOCATION.CITY_NAME.
+
+The project files are in Week_03_Prompting/Assignments/Task_2/data/:
+
+restaurants-schema.csv contains the database schema.
+restaurants-db.txt contains the restaurant data.
+restaurants_dataset.csv contains the questions.
+
+Do every question in restaurants_dataset.csv. Generate the SQL yourself.
+
+Example {
+Question: "What is the best delivery in bratislava?"
+Expected answer:
+SELECT L.HOUSE_NUMBER, R.NAME
+FROM RESTAURANT AS R
+JOIN LOCATION AS L ON L.RESTAURANT_ID = R.ID
+WHERE R.FOOD_TYPE = 'delivery'
+  AND L.CITY_NAME = 'bratislava'
+  AND R.RATING = (
+    SELECT MAX(R2.RATING)
+    FROM RESTAURANT AS R2
+    JOIN LOCATION AS L2 ON L2.RESTAURANT_ID = R2.ID
+    WHERE R2.FOOD_TYPE = 'delivery'
+      AND L2.CITY_NAME = 'bratislava'
+  );
+}
+
+Scenario:
+The queries will be executed against the restaurant database.
+Their results will be compared with the expected results
+to evaluate their correctness.
+
+Expectation:
+Save restaurants_dataset_predictions_RISE.csv with columns: question,predicted_sql.
+One SQL query per question. Keep the original question text and order.
+Do not use row numbers to choose answers. No explanations or extra files.
+Select L.HOUSE_NUMBER and R.NAME in every query.
+Use only the question column. Do not use the result column.
+Generate each SQL query directly.
+Do not write or use a parser or a rule-based generator.
+Do not read existing prediction files.
+Save the generated queries without correcting them against expected results.
+Use only the question column. Do not read or use the result column or existing prediction files.
