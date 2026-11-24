@@ -1,0 +1,212 @@
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+model = "gpt-6.2-sol"
+model_reasoning_effort = "medium"
+service_tier = "default"
+notify = [ "<REDACTED_NOTIFY_PATH>", "turn-ended" ]
+[projects."<REDACTED_PROJECT_PATH_01>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_02>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_03>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_04>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_05>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_06>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_07>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_08>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_09>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_10>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_11>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_12>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_13>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_14>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_15>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_16>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_17>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_18>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_19>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_20>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_21>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_22>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_23>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_24>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_25>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_26>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_27>"]
+trust_level = "trusted"
+
+[projects."<REDACTED_PROJECT_PATH_28>"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.6-sol" = 3
+
+[windows]
+sandbox = "unelevated"
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "<REDACTED_MARKETPLACE_PATH>/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "<REDACTED_MARKETPLACE_PATH>/openai-primary-runtime"
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[features]
+js_repl = false
+
+[mcp_servers.node_repl]
+command = "<REDACTED_APP_PATH>/node_repl.exe"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY", "CODEX_WINDOWS_REGISTERED_CORE"]
+startup_timeout_sec = 120.0
+
+[mcp_servers.node_repl.env]
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1120.41243"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+CODEX_CLI_PATH = "<REDACTED_LOCAL_VALUE>"
+CODEX_HOME = "<REDACTED_LOCAL_VALUE>"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+NODE_REPL_LAZY_TRUSTED_WORKER = "0"
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "<REDACTED_LOCAL_VALUE>"
+NODE_REPL_NODE_PATH = "<REDACTED_LOCAL_VALUE>"
+NODE_REPL_TRUSTED_CODE_PATHS = "<REDACTED_LOCAL_VALUE>"
+NODE_REPL_TRUSTED_SERVICES = "<REDACTED_LOCAL_VALUE>"
+NODE_REPL_UNTRUSTED_ENV_ALLOWLIST = "CODEX_WINDOWS_REGISTERED_CORE"
+SKY_CUA_NATIVE_PIPE = "1"
+SKY_CUA_NATIVE_PIPE_DIRECTORY = "<REDACTED_LOCAL_VALUE>"
+
+[mcp_servers.task7_word_count]
+command = "<CODEX_HOME>/packages/task7-word-count/Scripts/python.exe"
+args = ["<WORKSPACE>/Assignments/Task_7/server.py"]
+
+[desktop]
+conversationDetailMode = "STEPS_PROSE"
+sansFontSize = 14
+codeFontSize = 13
+ambient-suggestions-enabled = true
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+git-pull-request-merge-method = "merge"
+appearanceTheme = "dark"
+migratedFollowUpQueueToSteer = true
+localeOverride = "en-US"
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "<REDACTED_LOCAL_HASH>"
+
+[apps.connector_REDACTED_01.tools."github.update_file"]
+approval_mode = "approve"
+
+[apps.asdk_app_REDACTED_02.tools."tinyfish.run_web_automation"]
+approval_mode = "approve"
+
+[apps.asdk_app_REDACTED_02.tools."tinyfish.start_profile_setup_session"]
+approval_mode = "approve"
+
+[computer_use.windows.always_allowed_app_ids]
+"openutau.exe" = true
+"explorer.exe" = true
+"fl64.exe" = true
+"synthv-studio.exe" = true
+"client.exe" = true
+"services.exe" = true
+"mmc.exe" = true
+"windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel" = true
+"control.exe" = true
+"legionspace.exe" = true
+"code.exe" = true
+"steamwebhelper.exe" = true
+"chrome.exe" = true

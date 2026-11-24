@@ -1,0 +1,1 @@
+When I ask for an explanation, use a small example. When reviewing my code, explain the cause of each issue and suggest a fix. Keep answers concise and avoid unnecessary libraries or abstractions.

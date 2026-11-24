@@ -1,0 +1,1 @@
+I asked Codex to inspect the project and create AGENTS.md in its root, using information from the project files. I reviewed the generated file.

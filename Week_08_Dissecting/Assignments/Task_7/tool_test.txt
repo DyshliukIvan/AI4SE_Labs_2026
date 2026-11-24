@@ -1,0 +1,21 @@
+﻿{
+  "call": {
+    "server": "task7_word_count",
+    "tool": "count_words",
+    "arguments": {
+      "text": "Hello from Codex"
+    }
+  },
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "3"
+      }
+    ],
+    "structuredContent": {
+      "result": 3
+    },
+    "isError": false
+  }
+}
