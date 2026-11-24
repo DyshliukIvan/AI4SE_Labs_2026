@@ -1,0 +1,21 @@
+# Assessment by mimo-2.6-flash
+
+# Week 03 Prompting
+- Awarded: 4.5b out of 5b
+- Commentary: All four tasks are completed with the required deliverables present: three framework-based prompts, full prediction files for all three prompts plus timings, an implemented alternative metric, and a statistical comparison report. The student is commendably honest about validity threats (the CAR run used a rule-based generator despite the prompt, agents opened the labelled CSV, timings uncontrolled), though the headline CAR result remains confounded. Reports are consistently terse, and the three PNG figures could not be viewed by this grader, so visuals were judged only from their text references.
+
+## Task 1
+- Awarded: 1b   (max 1b)
+- Commentary: Three genuine frameworks (CAR, RACE, RISE) were chosen from frompting.com with source URLs, avoiding both ROSES and zero-shot prompting. Each prompt file is well formed according to its framework structure (Challenge/Action/Result, Role/Action/Context/Expectation, Request/Input/Scenario/Expectation) and is concretely adapted to the Task 2 SQL-generation problem, including schema details, an example, and explicit anti-contamination constraints. The report states why each framework was chosen and what was expected from it, satisfying both required outputs, though the rationale text is very brief.
+
+## Task 2
+- Awarded: 1b   (max 1b)
+- Commentary: Prediction files exist for all three prompts (155 questions each, question + predicted_sql), an evaluation script executes predictions against an in-memory SQLite database and compares row multisets, and the report gives accuracy (RISE 51.61%, RACE 54.84%, CAR 92.26%) plus measured times (138.8/130.6/185.2 s), with each prompt run in a separate session and the model (gpt-5.6-luna) identified. A visualization (accuracy.png) is referenced; the image could not be viewed by this grader, so it was judged from the text. Minor weaknesses: model/prompt metadata lives in filenames and the report rather than in CSV columns, and the CAR run is contaminated by a rule-based PowerShell generator that the prompt forbade, though the student discloses this clearly.
+
+## Task 3
+- Awarded: 1b   (max 1b)
+- Commentary: Mean per-question result precision (multiset-matched rows / predicted rows) is proposed and implemented in evaluate_metrics.py, which reuses the Task 2 database loader, handles SQL errors and empty results explicitly, validates question ordering, and reports values for all three prediction files (RISE 54.26%, RACE 60.76%, CAR 98.25%). The report discusses that the metric complements rather than replaces accuracy (it captures excess/wrong rows but not missing ones). Deductions avoided only barely: precision is a standard metric rather than an invention, the defence of its applicability is one paragraph, and awarding 1.0 for empty-vs-empty inflates the scores; nonetheless all required outputs are delivered and implemented correctly.
+
+## Task 4
+- Awarded: 1.5b   (max 2b)
+- Commentary: The report contains metric tables (accuracy, precision, agent time), two referenced graphs (metric_comparison.png, generation_times.png — images could not be viewed by this grader, so they were assessed only from their captions/labels in the text), and a proper inferential analysis: paired permutation tests with Holm correction reporting adjusted p-values (RACE–RISE n.s. on both metrics; CAR contrasts p = 0.0003). Prompts, model, and coding agent are treated as factors: prompt structure differences, model held constant with only one run per prompt, and agent effects (rule-based CAR generator, exposure to the labelled CSV, concurrent/uncontrolled timing) are all discussed, along with limitations from correlated repeated question patterns. Half a point is withheld because the "detailed analysis" is compact: there is no per-question or error-type breakdown, no distribution/confidence intervals for the metric values, and the explanation of why the differences arise leans on confound listing rather than an empirical account of where RISE/RACE lose points; no code or artifacts accompany the statistical claims, so the reported p-values cannot be verified.
